@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>5x5 Slot RTP & Win Explainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slot-area">
+    <div class="balance-bar">
+      Balance: <span id="balance">100000</span>
+      | Jackpot: <span id="jackpot">0</span>
+    </div>
+    <div class="slot-reels" id="slot-reels"></div>
+    <div class="controls-bar">
+      <button class="bet-btn" id="minus">–</button>
+      <span class="bet-amount" id="bet-amount">10</span>
+      <button class="bet-btn" id="plus">+</button>
+      <button id="buy-free-spin" class="ctrl-btn buy-btn">Buy 15 FS</button>
+      <button id="spin" class="ctrl-btn spin-btn">Spin</button>
+      <button id="auto-spin" class="ctrl-btn auto-btn">Auto</button>
+      <button id="stats-btn" class="ctrl-btn sim-btn">Stats</button>
+      <button id="history-btn" class="ctrl-btn hist-btn">History</button>
+      <button id="rtp-btn" class="ctrl-btn rtp-btn">RTP</button>
+    </div>
+    <div class="free-spin-status" id="free-spin-status"></div>
+    <div class="win" id="win"></div>
+    <div id="fs-total"></div>
+    <div id="win-table"></div>
+    <div style="margin:3px;text-align:center">
+      <button id="howwin-btn" class="ctrl-btn winexpl-btn" style="display:none;">How Win?</button>
+    </div>
+  </div>
+  <!-- Win Explainer Overlay -->
+  <div id="howwin-page" class="rtp-page">
+    <div class="rtp-dialog" style="max-width:410px">
+      <div style="text-align:right;">
+        <button id="close-howwin" class="ctrl-btn close-btn">✕</button>
+      </div>
+      <div id="howwin-results"></div>
+    </div>
+  </div>
+  <!-- RTP Overlay -->
+  <div id="rtp-page" class="rtp-page">
+    <div class="rtp-dialog">
+      <div style="text-align:right;">
+        <button id="close-rtp" class="ctrl-btn close-btn">✕</button>
+      </div>
+      <div style="font-size:1.1em;margin-bottom:4px"><b>Slot RTP Control (%)</b></div>
+      <div class="rate-controls">
+        Jackpot: <input type="number" id="rtp-jackpot" min="0" max="100" step="0.001">%<br>
+        15FS: <input type="number" id="rtp-fs15" min="0" max="100" step="0.01">%<br>
+        5FS: <input type="number" id="rtp-fs5" min="0" max="100" step="0.01">%<br>
+        Any Win: <input type="number" id="rtp-anywin" min="0" max="100" step="0.1">%<br>
+        <button id="rtp-save" class="ctrl-btn sim-btn" style="margin-top:7px">Save</button>
+      </div>
+      <div style="font-size:0.99em;color:#915">Total must be ≤ 100%</div>
+    </div>
+  </div>
+  <div id="stats-page" class="rtp-page">
+    <div class="rtp-dialog">
+      <div style="text-align:right;">
+        <button id="close-stats" class="ctrl-btn close-btn">✕</button>
+      </div>
+      <div id="stats-results"></div>
+    </div>
+  </div>
+  <div id="history-page" class="rtp-page">
+    <div class="rtp-dialog">
+      <div style="text-align:right;">
+        <button id="close-history" class="ctrl-btn close-btn">✕</button>
+      </div>
+      <div id="history-results"></div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
